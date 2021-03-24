@@ -5,7 +5,7 @@ apt upgrade
 
 apt install nodejs 
 
-git clone whatsappbot
+git clone https://github.com/elicksom15/whatsappbot.git
 
 cd whatsappbot 
 
