@@ -1,11 +1,15 @@
-BOT INTEIRAMENTE EDITÁVEL FEITO POR TRASHDK E CAUSS
+BOT INTEIRAMENTE EDITÁVEL FEITO POR ELICKSOM.
 
+Comandos: 
 
-CANAIS -
+apt upgrade 
+apt install nodejs 
+git clone whatsappbot
+cd whatsappbot 
+bash install.sh 
 
+npm start
 
+ou
 
-TRASHDK - https://youtube.com/channel/UCOqlFzRrB8IZUWUx1cwCeUw
-
-
-CAUSS - https://youtube.com/c/caussZ
+pm2 start index.js
