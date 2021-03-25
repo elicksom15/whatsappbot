@@ -17,11 +17,7 @@ const kagApi = require('@kagchi/kag-api')
 const fetch = require('node-fetch')
 const ffmpeg = require('fluent-ffmpeg')
 const { removeBackgroundFromImageFile } = require('remove.bg')
-const lolis = require('lolis.life')
-const loli = new lolis()
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
-const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
-const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 prefix = '.'
 blocked = []
 
@@ -338,7 +334,7 @@ async function starts() {
 					break
 		
 				case 'yt2mp3':
-					if (args.length < 1) return reply('Cade o Link? Porra!')
+					if (args.length < 1) return reply('')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/yta?url=${args[0]}&apiKey=${apiKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
@@ -360,29 +356,6 @@ async function starts() {
 					reply(teks.trim())
 					break
 			
-				case '':
-					if (args.length < 1) return reply('Cade o Link? Porra!')
-					if (!isUrl(args[0]) && !args[0].includes('.com')) return reply(mess.error.Iv)
-					reply(mess.wait)
-					anu = await fetchJson(`https://mhankbarbar.tech/api/?url=${args[0]}&apiKey=${apiKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, video, {quoted: mek})
-					break
-			
-				case 'stalk':
-					try {
-						if (args.length < 1) return client.sendMessage(from, 'MENSAGEM PERGUNTANDO ONDE ESTA O NOME DO USUÁRIO', text, {quoted: mek})
-						let { user, stats } = await tiktod.getUserProfileInfo(args[0])
-						reply(mess.wait)
-						teks = `*ID* : ${user.id}\n*Username* : ${user.uniqueId}\n*Nickname* : ${user.nickname}\n*Followers* : ${stats.followerCount}\n*Followings* : ${stats.followingCount}\n*Posts* : ${stats.videoCount}\n*Luv* : ${stats.heart}\n`
-						buffer = await getBuffer(user.avatarLarger)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
-					} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						 reply ('Usuario invalido')
-					}
-					break
 			
 				case 'nulis':
 				case 'tulis':
@@ -399,7 +372,7 @@ async function starts() {
 					tipelist = ['desktop','tablet','mobile']
 					if (args.length < 1) return reply('Tipenya apa um?')
 					if (!tipelist.includes(args[0])) return reply('Tipo desktop|tablet|mobile')
-					if (args.length < 2) return reply('Cade o Link? Porra!')
+					if (args.length < 2) return reply('')
 					if (!isUrl(args[1])) return reply(mess.error.Iv)
 					reply(mess.wait)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/url2image?tipe=${args[0]}&url=${args[1]}&apiKey=${apiKey}`, {method: 'get'})
