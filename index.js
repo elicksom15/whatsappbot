@@ -331,7 +331,7 @@ async function starts() {
 						buffer = await getBuffer(res.url)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'HMMMMMMM'})
 					})
-					break*/
+					break
 				case 'hilih':
 					if (args.length < 1) return reply('Cade o TEXTOOO?')
 					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/hilih?teks=${body.slice(7)}`, {method: 'get'})
